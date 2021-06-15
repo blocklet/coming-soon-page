@@ -1,14 +1,21 @@
 name: coming-soon-page
-title: Coming Soon Page
-description: A simple coming soon page implementation that can be used to serve sites that are under construction
-group: static
-main: app
-author:
-  name: wangshijun
-specVersion: 1.1.1
+version: 0.2.0
 files:
   - blocklet.md
   - screenshots
+keywords:
+  - demo
+  - blocklet
+author:
+  name: wangshijun
+license: ''
+title: Coming Soon Page
+description: >-
+  A simple coming soon page implementation that can be used to serve sites that
+  are under construction
+group: static
+main: app
+specVersion: 1.1.1
 interfaces:
   - type: web
     name: publicUrl
@@ -17,11 +24,9 @@ interfaces:
     port: BLOCKLET_PORT
     protocol: http
 did: z8ia5AUWNBoc5Jw6Zf2ru97W1y6PZVFiFa7h9
-version: 0.1.0
 community: ''
 documentation: ''
 homepage: ''
-license: ''
 charging:
   price: 0
   tokens: []
@@ -33,7 +38,8 @@ requirements:
   os: '*'
   cpu: '*'
 environments: []
-capabilities: {}
+capabilities:
+  clusterMode: false
 screenshots:
   - home.png
 children: []
