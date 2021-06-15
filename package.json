@@ -1,0 +1,22 @@
+{
+  "name": "coming-soon-page",
+  "version": "0.1.0",
+  "files": [
+    "app/",
+    "logo.png",
+    "blocklet.yml",
+    "blocklet.md",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf .blocklet",
+    "release": "npm run clean && blocklet bundle --create-release",
+    "deploy": "npm run release && blocklet deploy .blocklet/bundle --skip-hooks"
+  },
+  "keywords": [
+    "demo",
+    "blocklet"
+  ],
+  "author": "wangshijun <wangshijun2010@gmail.com> (http://github.com/wangshijun)",
+  "license": "MIT"
+}
