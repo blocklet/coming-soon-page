@@ -15,17 +15,15 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Set yarn cache
-        uses: c-hive/gha-yarn-cache@v2
-
       - name: Init repo
         run: make github-init
 
       - name: Blocklet workflow
         uses: blocklet/action-workflow@v1.1
         with:
+          skip-abtnode: true
           skip-upload: false
-          bundle-command: yarn build
+          bundle-command: yarn release
           store-endpoint: ${{secrets.STORE_ENDPOINT_PROD}}
           store-access-token: ${{secrets.STORE_ACCESS_TOKEN_PROD}}
           slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
