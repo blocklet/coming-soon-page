@@ -1,4 +1,4 @@
-name: build
+name: Blocklet Workflow
 
 on:
   push:
@@ -7,29 +7,26 @@ on:
 
 jobs:
   Deploy:
-
     runs-on: ubuntu-latest
 
     if: "! contains(toJSON(github.event.head_commit.message), '[skip ci]')"
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-    - name: Checkout repo
-      uses: actions/checkout@v2
+      - name: Set yarn cache
+        uses: c-hive/gha-yarn-cache@v2
 
-    - name: Init repo
-      run: make github-init
+      - name: Init repo
+        run: make github-init
 
-    - name: Deploy
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GIT_HUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
-        BLOCKLET_REGISTRY: ${{ secrets.BLOCKLET_REGISTRY }}
-        ABTNODE_DEV_SK: ${{ secrets.ABTNODE_DEV_SK }}
-      run: bash ./tools/publish.sh
-
-    - name: Release to Github
-      uses: blocklet/action-release-to-github@v1.0.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Blocklet workflow
+        uses: blocklet/action-workflow@v1.1
+        with:
+          skip-upload: false
+          bundle-command: yarn build
+          store-endpoint: ${{secrets.STORE_ENDPOINT_PROD}}
+          store-access-token: ${{secrets.STORE_ACCESS_TOKEN_PROD}}
+          slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

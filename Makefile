@@ -11,11 +11,11 @@ init: install dep
 
 github-init:
 	@echo "Initializing the repo..."
-	@sudo npm install -g @abtnode/cli
+	@sudo yarn global add @abtnode/cli
 
 install:
 	@echo "Install software required for this repo..."
-	@npm install -g yarn @abtnode/cli
+	@yarn global add @abtnode/cli
 
 dep:
 	@echo "Install dependencies required for this repo..."

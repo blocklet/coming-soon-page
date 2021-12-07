@@ -1,5 +1,5 @@
 name: coming-soon-page
-version: 0.4.0
+version: 0.4.1
 files:
   - blocklet.md
   - screenshots
@@ -16,7 +16,7 @@ description: >-
   are under construction
 group: static
 main: app
-specVersion: 1.1.1
+specVersion: 1.2.0
 interfaces:
   - type: web
     name: publicUrl
@@ -28,10 +28,9 @@ did: z8ia5AUWNBoc5Jw6Zf2ru97W1y6PZVFiFa7h9
 community: ''
 documentation: ''
 homepage: ''
-charging:
-  price: 0
-  tokens: []
-  shares: []
+payment:
+  price: []
+  share: []
 timeout:
   start: 60
 requirements:

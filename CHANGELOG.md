@@ -1,3 +1,7 @@
+## 0.4.1 (十二月 07, 2021)
+
+- chore: upgrade blocklet.yml
+
 ## 0.4.0 (June 18, 2021)
 
 - fix: page title
